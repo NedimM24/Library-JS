@@ -8,26 +8,52 @@
 </head>
 <body>
 
+    <div class="container">
+        <div class="top">
+            <div class="top-l">
+                <h1>Welcome to your Virtual Library</h1>
+                <button class="top-button">Add Book</button>
+            </div>
+
+            <div class="bottom">
+                <div class="content-card">
+                    <p><b>Title</b> - Harry Potter</p>
+                    <p><b>Author</b> - JK Rowling</p> 
+                    <p><b>Pages</b> - 356</p>
+                    <button>Read</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
     // Library array where we will store bookes
     const myLibrary = [];
 
     //Book constructor
-    function Book(id, title, author, page, isRead){
-        this.id = id;
+    function Book(title, author, pages, isRead){
+        this.id = crypto.randomUUID();
         this.title = title;
         this.author = author;
-        this.page = page;
-        this.isRead = false;
+        this.pages = pages;
+        this.isRead = isRead;
     }
 
     //Creates book from aguements and adds the book to the Array
-    function addBook(){
-
+    function addBook(title, author, pages, isRead){
+        const newBook = new Book(title, author, pages, isRead);
+        myLibrary.push(newBook);
     }
 
-    </script>
+    addBook("harry potter", "JK Rowling", 456, true);
+    console.log(myLibrary)
+
     
+
+  
+    
+
+
+    </script>
 </body>
 </html>
