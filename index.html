@@ -17,26 +17,7 @@
     </div>
 
     <div class="bottom">
-        <div class="content-card">
-            <p><b>Title</b> - Harry Potter and the Philosopher's Stone</p>
-            <p><b>Author</b> - J.K Rowling</p> 
-            <p><b>Pages</b> - 223</p>
-            <button>Read</button>
-        </div>
-
-        <div class="content-card">
-            <p><b>Title</b> - Meditations</p>
-            <p><b>Author</b> - Marcus Aurelius</p> 
-            <p><b>Pages</b> - 192 </p>
-            <button>Read</button>
-        </div>
-
-        <div class="content-card">
-            <p><b>Title</b> - The Cat in the Hat</p>
-            <p><b>Author</b> - Dr. Seuss</p> 
-            <p><b>Pages</b> - 61 </p>
-            <button>Read</button>
-        </div>
+    
     </div>
 </div>
     
@@ -60,8 +41,37 @@
         myLibrary.push(newBook);
     }
 
-    addBook("harry potter", "JK Rowling", 456, true);
-    console.log(myLibrary)
+    // adding random books top array here 
+    addBook("Cat in the Hat", "Dr.Seuss", 65, true);
+    addBook("Harry Potter and the Philosophers stone", "J.K Rowling", 445, true);
+    //End random 
+
+    
+
+    //function that loops through array and adds the book to the page
+    function displayBook(){
+        //Start to iterate through the array
+        myLibrary.forEach(book => {
+        const contentCard = document.createElement("div");      //Create the book on a content carf
+        contentCard.classList.add("content-card");              // Adds the class named "content-card to the div"
+
+        const title = document.createElement("div");            //creating the title div
+        title.textContent = "test";
+        contentCard.appendChild(title);                         //append the title to the content card
+
+        const container = document.querySelector(".bottom");    //select the bottom container
+        container.appendChild(contentCard)                      //add the content card to the container
+    })
+    };
+
+    displayBook();
+    
+
+    
+
+    
+
+    
 
     
 
