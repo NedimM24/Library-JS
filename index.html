@@ -13,11 +13,32 @@
         <div class="top-l">
             <h1>Virtual Library</h1>
         </div>
-        <button class="top-button">Add Book</button> <!-- Button moved outside of .top-l -->
+        <dialog id="addBookDialog">
+            <form action="">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="userInput">
+
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="userInput">
+
+                <label for="pages">Page Count:</label>
+                <input type="number" id="pages" name="userInput">
+
+                <label for="read">Have read?:</label>
+                <input type="checkbox" id="author" name="userInput">
+                
+                <button value="cancel" formmethod="dialog">Cancel</button>
+                <button id="confirmBtn" value="default">Confirm</button>
+            </form>
+        </dialog>
+
+        <p>
+            <button class="top-button">Add book</button>
+        </p>
     </div>
 
     <div class="bottom">
-    
+        <!-- Additional content goes here -->
     </div>
 </div>
     
@@ -54,6 +75,11 @@
     //userBookIsRead
 
     //addBook(userBookVariables);
+
+    const addBookButton = document.querySelector(".top-button");
+    addBookButton.addEventListener("click" , () => {
+        addBookButton.style.backgroundColor = "yellow";
+    })
 
     
 
