@@ -24,8 +24,8 @@
                 <label for="pages">Page Count:</label>
                 <input type="number" id="pages" name="userInput">
 
-                <label for="read">Have read?:</label>
-                <input type="checkbox" id="author" name="userInput">
+                <label for="read">Have you read this book?</label>
+                <input type="checkbox" id="read" name="userInput">
                 
                 <button value="cancel" formmethod="dialog">Cancel</button>
                 <button id="confirmBtn" value="default">Confirm</button>
@@ -35,6 +35,7 @@
         <p>
             <button class="top-button">Add book</button>
         </p>
+        <output></output>
     </div>
 
     <div class="bottom">
@@ -75,12 +76,14 @@
     //userBookIsRead
 
     //addBook(userBookVariables);
-
+    
     const addBookButton = document.querySelector(".top-button");
-    addBookButton.addEventListener("click" , () => {
-        addBookButton.style.backgroundColor = "yellow";
+    const formDialog = document.querySelector("#addBookDialog");
+    
+    addBookButton.addEventListener("click", () => {
+        formDialog.showModal();
     })
-
+    
     
 
     //function that loops through array and adds the book to the page
