@@ -21,7 +21,6 @@
     </div>
 </div>
     
-
     <script>
     // Library array where we will store bookes
     const myLibrary = [];
@@ -41,10 +40,20 @@
         myLibrary.push(newBook);
     }
 
-    // adding random books top array here 
+    // adding random books to array here 
     addBook("Cat in the Hat", "Dr.Seuss", 65, true);
     addBook("Harry Potter and the Philosophers stone", "J.K Rowling", 445, true);
     //End random 
+
+    //Add book button functionality
+    //once clicked form opens
+    // store user inputs into variables
+    //userBookTitle
+    //userBookAuthor
+    //userBookPages
+    //userBookIsRead
+
+    //addBook(userBookVariables);
 
     
 
@@ -56,28 +65,23 @@
         contentCard.classList.add("content-card");              // Adds the class named "content-card to the div"
 
         const title = document.createElement("div");            //creating the title div
-        title.textContent = "test";
+        title.textContent = `Title - ${book.title}`;
         contentCard.appendChild(title);                         //append the title to the content card
 
+        const author = document.createElement("div");
+        author.textContent = `Author - ${book.author}`;
+        contentCard.appendChild(author);
+
+        const pages = document.createElement("div");
+        pages.textContent = `Page Count - ${book.pages}`;
+        contentCard.appendChild(pages);
+
         const container = document.querySelector(".bottom");    //select the bottom container
-        container.appendChild(contentCard)                      //add the content card to the container
+        container.appendChild(contentCard);                      //add the content card to the container
     })
     };
 
     displayBook();
-    
-
-    
-
-    
-
-    
-
-    
-
-  
-    
-
 
     </script>
 </body>
