@@ -16,19 +16,19 @@
         <dialog id="addBookDialog">
             <form action="">
                 <label for="userTitle">Title</label>
-                <input type="text" id="title" name="userInput" required>
+                <input type="text" id="title" name="Book Title" required>
 
                 <label for="userAuthor">Author</label>
-                <input type="text" id="author" name="userInput" required>
+                <input type="text" id="author" name="Book Author" required>
 
                 <label for="userPages">Page Count</label>
-                <input type="number" id="pages" name="userInput" required>
+                <input type="number" id="pages" name="Book Pages" required>
 
                 <label for="read">Have you read this book?</label>
-                <input type="checkbox" id="read" name="userInput">
+                <input type="checkbox" id="read" name="Have Read">
                 
                 <button value="cancel" formmethod="dialog">Cancel</button>
-                <button id="confirmBtn" value="default">Confirm</button>
+                <button class="submit">Submit</button>
             </form>
         </dialog>
 
@@ -38,12 +38,17 @@
         <output></output>
     </div>
 
+
     <div class="bottom">
-        <!-- Additional content goes here -->
+
+        <!-- This is where the user created books go -->
+       
+        
     </div>
 </div>
+
+<script>
     
-    <script>
     // Library array where we will store bookes
     const myLibrary = [];
 
@@ -62,55 +67,73 @@
         myLibrary.push(newBook);
     }
 
-    // adding random books to array here 
-    addBook("Meditations", "Marcus Aurelius", 215, true);
-    addBook("Harry Potter and the Philosophers stone", "J.K Rowling", 445, true);
-    //End random 
+   
+    
 
-    //Add book button functionality
-    //once clicked form opens
-    // store user inputs into variables
-    //userBookTitle
-    //userBookAuthor
-    //userBookPages
-    //userBookIsRead
-
-    //addBook(userBookVariables);
     
     const addBookButton = document.querySelector(".top-button");
     const formDialog = document.querySelector("#addBookDialog");
+    const submitButton = document.querySelector(".submit");
     
     addBookButton.addEventListener("click", () => {
         formDialog.showModal();
     })
-    
-    
+
+    submitButton.addEventListener("click", function(e) {
+        e.preventDefault(); //Preventing the form from submitting normally
+        var title = document.getElementById("title").value;
+        var author = document.getElementById("author").value;
+        var pages = document.getElementById("pages").value;
+        var isRead = document.getElementById("read").checked;
+        pages = parseInt(pages);
+
+        addBook(title, author, pages, isRead);
+
+        formDialog.close();
+
+        document.getElementById("title").value = '';
+        document.getElementById("author").value = '';
+        document.getElementById("pages").value = '';
+        document.getElementById("read").checked = false;
+
+        displayBook();
+    })
+
+
 
     //function that loops through array and adds the book to the page
     function displayBook(){
+
+        const container = document.querySelector(".bottom");
+        while(container.firstChild){
+            container.removeChild(container.firstChild)
+        }
+
+    
+
         //Start to iterate through the array
         myLibrary.forEach(book => {
-        const contentCard = document.createElement("div");      //Create the book on a content carf
-        contentCard.classList.add("content-card");              // Adds the class named "content-card to the div"
+            const contentCard = document.createElement("div");      //Create the book on a content carf
+            contentCard.classList.add("content-card");              // Adds the class named "content-card to the div"
 
-        const title = document.createElement("div");            //creating the title div
-        title.textContent = `Title - ${book.title}`;
-        contentCard.appendChild(title);                         //append the title to the content card
+            const title = document.createElement("div");            //creating the title div
+            title.textContent = `Title - ${book.title}`;
+            contentCard.appendChild(title);                         //append the title to the content card
 
-        const author = document.createElement("div");
-        author.textContent = `Author - ${book.author}`;
-        contentCard.appendChild(author);
+            const author = document.createElement("div");
+            author.textContent = `Author - ${book.author}`;
+            contentCard.appendChild(author);
 
-        const pages = document.createElement("div");
-        pages.textContent = `Page Count - ${book.pages}`;
-        contentCard.appendChild(pages);
+            const pages = document.createElement("div");
+            pages.textContent = `Page Count - ${book.pages}`;
+            contentCard.appendChild(pages);
 
-        const container = document.querySelector(".bottom");    //select the bottom container
-        container.appendChild(contentCard);                      //add the content card to the container
+            const container = document.querySelector(".bottom");    //select the bottom container
+            container.appendChild(contentCard);                      //add the content card to the container
     })
     };
 
-    displayBook();
+   
 
     </script>
 </body>
