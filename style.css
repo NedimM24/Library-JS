@@ -40,6 +40,13 @@ body{
   
 }
 
+.content-card2{
+    border: 2px solid white;
+    padding: 1rem;
+  
+}
+
+
 #addBookDialog::backdrop {
     background: rgb(0, 0, 0 / .4);
     
