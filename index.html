@@ -16,13 +16,13 @@
         <dialog id="addBookDialog">
             <form action="">
                 <label for="userTitle">Title</label>
-                <input type="text" id="title" name="userInput">
+                <input type="text" id="title" name="userInput" required>
 
                 <label for="userAuthor">Author</label>
-                <input type="text" id="author" name="userInput">
+                <input type="text" id="author" name="userInput" required>
 
                 <label for="userPages">Page Count</label>
-                <input type="number" id="pages" name="userInput">
+                <input type="number" id="pages" name="userInput" required>
 
                 <label for="read">Have you read this book?</label>
                 <input type="checkbox" id="read" name="userInput">
@@ -63,7 +63,7 @@
     }
 
     // adding random books to array here 
-    addBook("Cat in the Hat", "Dr.Seuss", 65, true);
+    addBook("Meditations", "Marcus Aurelius", 215, true);
     addBook("Harry Potter and the Philosophers stone", "J.K Rowling", 445, true);
     //End random 
 
