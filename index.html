@@ -48,8 +48,8 @@
 </div>
 
 <script>
-    
-    // Library array where we will store bookes
+
+// Library array where we will store bookes
     const myLibrary = [];
 
     //Book constructor
@@ -136,24 +136,33 @@
             deleteButton.classList.add("delete-button");
             contentCard.appendChild(deleteButton);
 
+            const readButton = document.createElement("button");
+            readButton.textContent = "Read?"
+            readButton.classList.add("read-button");
+            if(book.isRead){
+                readButton.style.backgroundColor = "green"
+            } else {
+                readButton.style.backgroundColor = "red";
+            }
+
+            contentCard.appendChild(readButton)
+
+           
+
             //create functionality for the delete button
+
+            //Splice removes book in the index and only 1 content card is effected
             deleteButton.addEventListener("click", () => {
                 myLibrary.splice(index, 1)
                 displayBook();
-
-           
+                
     })
 
            
             container.appendChild(contentCard);                      //add the content card to the container
             
-            
-
-            
     })
     };
-
-   
 
     </script>
 </body>
