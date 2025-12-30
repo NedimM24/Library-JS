@@ -99,6 +99,7 @@
         displayBook();
     })
 
+    
 
 
     //function that loops through array and adds the book to the page
@@ -132,6 +133,11 @@
             deleteButton.textContent = "Delete";
             deleteButton.classList.add("delete-button");
             contentCard.appendChild(deleteButton);
+            //create functionality for the delete button
+            deleteButton.addEventListener("click", () => {
+                deleteButton.style.backgroundColor = "green";
+    })
+
 
             const container = document.querySelector(".bottom");    //select the bottom container
             container.appendChild(contentCard);                      //add the content card to the container
