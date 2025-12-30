@@ -37,7 +37,6 @@ body{
 .content-card{
     border: 2px solid white;
     padding: 1rem;
-  
 }
 
 .content-card2{
@@ -100,8 +99,13 @@ form {
     border-radius: 10px;
 }
 
+.read-button,
 .delete-button{
-    background-color: blue;
+   
+    width: 20%;
+    height: 30%;
+
+    margin-top: 1rem;
 }
 
 
