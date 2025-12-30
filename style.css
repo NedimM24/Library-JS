@@ -19,10 +19,18 @@ body{
     display: grid;
     padding: 1rem;
     grid-template-columns: 1fr 1fr;
+    
+    
 }
 
 .top-button{
     grid-column: 2;
+    border: none;
+    height: 2.4rem;
+    width: 10rem;
+    border-radius: 10px;
+    background-color: white;
+    font-weight: bold;
 }
 
 .bottom{
@@ -32,6 +40,8 @@ body{
     gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(100px, 400px));
     justify-content: center;
+
+    border: 2px solid white;
 }
 
 .content-card{
