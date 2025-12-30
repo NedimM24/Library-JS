@@ -100,4 +100,8 @@ form {
     border-radius: 10px;
 }
 
+.delete-button{
+    background-color: blue;
+}
+
 
